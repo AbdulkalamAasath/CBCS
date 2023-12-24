@@ -1,0 +1,12 @@
+const express = require('express')
+const route = express.Router()
+const StaffRequireAuth = require('../middleware/StaffRequireAuth')
+const {getRegStudents,getStudentInfo,updateStudentInfo,createAttendence,getDate,getAttendenceInfo} = require('../Controllers/CourseController')
+route.use(StaffRequireAuth)
+route.get('/RegStudent/:id',getRegStudents)
+route.get('/Attendence/:id',getStudentInfo)
+route.get('/Date/:id',getDate)
+route.post('/Attendence/Given/:id',updateStudentInfo)
+route.post('/Attendence/Given',createAttendence)
+route.post('/Attendence/Info',getAttendenceInfo)
+module.exports = route
