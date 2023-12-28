@@ -64,6 +64,8 @@ const handelclick = async() =>
         </tbody>
       </table>}
       <Link to='/staf/Home/Attendence'>Give Attendence</Link>
+      <br></br>
+      <Link to='/staf/Home/Attendence/Info'>View Attendence Info</Link>
     </div>
   )
 }

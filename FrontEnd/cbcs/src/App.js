@@ -14,6 +14,7 @@ import CourseRegister from "./Component/CourseRegister";
 import {useStaffAuthContext} from "./Hooks/useStaffAuthContext"
 import Attendence from "./Component/Attendence";
 import HodStudent from "./Component/HodStudent";
+import AttendenceInfo from "./Component/AttendenceInfo";
 function App() {
   const {user} = useAuthContext()
   const {HOD} = useHodAuthContext()
@@ -61,6 +62,9 @@ function App() {
             <Route 
             path='/staf/Home/Attendence'
             element={ staff ? <Attendence /> : <Navigate to='/staf'/>}/>
+            <Route 
+            path='/staf/Home/Attendence/Info'
+            element={ staff ? <AttendenceInfo /> : <Navigate to='/staf'/>}/>
          </Routes>
       </BrowserRouter>
     </div>

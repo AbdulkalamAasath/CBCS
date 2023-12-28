@@ -174,7 +174,13 @@ const getAttendenceInfo = async(req,res) =>
    const Attendence =  await Attendance.findOne({$and:[{Date:{$eq:Date}},{StaffId:{$eq:Id}}]}).populate({path:'StudentInfo.StudentId',select:'Name RegNo '}).exec()
    res.status(200).json(Attendence) 
 }
+const getAttendenceDate= async(req,res) =>
+{
+   const {Id} = req.body;
+   const Attendence =  await Attendance.find({StaffId:Id}).select('Date')
+   res.status(200).json(Attendence) 
+}
 
 module.exports = {
     getCourse,createCourse,getHodCourse,updatecourse,updateUserCourse,getUserCourse,updateStudentInfo,
-    getStudentRegCourse,deleteCourse,getStafsInfo,updateStafsInfo,getRegStudents,getStudentInfo,createAttendence,getDate,stuinfo,getAttendenceInfo}
+    getStudentRegCourse,deleteCourse,getStafsInfo,updateStafsInfo,getRegStudents,getStudentInfo,createAttendence,getDate,stuinfo,getAttendenceInfo,getAttendenceDate}
