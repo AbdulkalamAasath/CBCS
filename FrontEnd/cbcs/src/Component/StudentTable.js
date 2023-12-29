@@ -97,7 +97,7 @@ const StudentTable = ({course}) => {
                     <td>{user.Coordinator.Name}</td>
                     <td>{user.ProvidedBy}</td>
                     <td>{user.Seats}</td>
-                    <td><button className='button Reg'onClick={(e) => handelClick(e,user)}>Register</button></td>
+                    <td><button className='button Reg'onClick={(e) => handelClick(e,user)} disabled={user.Seats <= 0}>Register</button></td>
                 </tr>
             ))}
         </tbody>

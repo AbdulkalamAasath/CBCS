@@ -87,11 +87,21 @@ const AttendanceSheet = () => {
       }
     })
     })
+    Object.entries(attendance).map(async([studentId, isPresent]) =>{
+      const course = {"Date":formattedDate.toString(),present:isPresent,Id:staff.id}
+      const response1 = await fetch('http://localhost:4000/cbcs/staf/Attendence/student/given/'+studentId, {
+      method: 'POST',
+      body: JSON.stringify(course),
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization':`Bearer ${staff.token}`
+      }
+    })
+    })
     if(response.ok)
       {
         window.location.reload()
       }
-    console.log(Dates) 
   }
   if (loading) {
     return <p>Loading...</p>;

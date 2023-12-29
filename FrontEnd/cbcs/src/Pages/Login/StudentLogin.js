@@ -14,7 +14,7 @@ const StudentLogin = () => {
     await login(RegNo,password)
   }
   return (
-  <div>
+  <div className='body'>
     <header><Link to = '/' id="HOME">HOME</Link></header>
  <div className="container">
      <div className="left-side">

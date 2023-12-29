@@ -180,7 +180,15 @@ const getAttendenceDate= async(req,res) =>
    const Attendence =  await Attendance.find({StaffId:Id}).select('Date')
    res.status(200).json(Attendence) 
 }
+const StudentAttendence= async(req,res) =>
+{
+   const {id} = req.params;
+   const {Date} = req.body;
+   const {present} = req.body;
+   const Attendence =  await User.findOneAndUpdate({_id:id},{$push:{'Attendence':{'Date':Date,'present':present}}},{new:true})
+   res.status(200).json(Attendence) 
+}
 
 module.exports = {
     getCourse,createCourse,getHodCourse,updatecourse,updateUserCourse,getUserCourse,updateStudentInfo,
-    getStudentRegCourse,deleteCourse,getStafsInfo,updateStafsInfo,getRegStudents,getStudentInfo,createAttendence,getDate,stuinfo,getAttendenceInfo,getAttendenceDate}
+    getStudentRegCourse,deleteCourse,getStafsInfo,updateStafsInfo,getRegStudents,getStudentInfo,createAttendence,getDate,stuinfo,getAttendenceInfo,getAttendenceDate,StudentAttendence}
