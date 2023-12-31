@@ -9,7 +9,6 @@ const AttendanceSheet = () => {
   const today = new Date();
   const formattedDate = formatDate(today);
   const [loading,setLoading] = useState(true)
-  // Handler function to toggle attendance status
   const toggleAttendance = (studentId) => {
     setAttendance((prevAttendance) => ({
       ...prevAttendance,

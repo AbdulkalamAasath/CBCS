@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useHodAuthContext } from '../Hooks/useHodAuthContext'
 const HodStudent = () => {
     const {HOD} = useHodAuthContext() 
+    const [Attendence,setAttendance] = useState(false)
+    const [Attendencesheet,setAttendancesheet] = useState([])
     const [Data,setData] = useState([])
     useEffect(()=>{
       const fetchdata = async() => {
@@ -14,6 +16,7 @@ const HodStudent = () => {
             'Authorization':`Bearer ${HOD.token}`}
         })
         const json = await responce.json()
+        console.log(json)
         if(responce.ok)
         {
            setData(json)
@@ -21,9 +24,16 @@ const HodStudent = () => {
 
       }
       fetchdata()
-    },[])
+    },[setAttendancesheet])
+    const handelclick = (value) =>
+    {
+       setAttendancesheet(value)
+       setAttendance(true)
+    }
+    console.log(Attendencesheet)
   return (
     <div>
+       {!Attendence && 
        <table id='Hod'>
           <thead>
               <tr>
@@ -31,6 +41,7 @@ const HodStudent = () => {
                   <th>RegNo</th>
                   <th>Section</th>
                   <th>Regestered course</th>
+                  <th>Attendence</th>
               </tr>
           </thead>
           <tbody>
@@ -40,10 +51,31 @@ const HodStudent = () => {
                       <td>{value.RegNo}</td>
                       <td>A1</td>
                       <td>{value.CourseInfo ? value.CourseInfo.CourseName : 'N/A'}</td>
+                      <button onClick={() =>handelclick(value.Attendence)}>View Attendence</button>
                   </tr>
                   ))}
           </tbody>
-          </table>
+          </table>}
+
+            {Attendence && 
+              <table id='Hod'>
+              <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Attendence</th>
+                  </tr>
+              </thead>
+              <tbody>
+               {
+                Attendencesheet.map((value) => (
+                  <tr>
+                    <td>{value.Date}</td>
+                    {value.present ? <td>Present</td> : <td>Absent</td>}
+                  </tr>
+                ))
+               }
+              </tbody>
+              </table>}
     </div>
   )
               }
