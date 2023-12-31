@@ -31,6 +31,18 @@ const HodStudent = () => {
        setAttendance(true)
     }
     console.log(Attendencesheet)
+    const percentage = (value) =>
+    {
+      let count = 0;
+      value.map((value)=>{
+        if(value.present)
+        {
+          count = count + 1; 
+        }
+      })
+      let per = (count / value.length) * 100
+      return per.toFixed(2) + '%'
+    }
   return (
     <div>
        {!Attendence && 
@@ -42,6 +54,7 @@ const HodStudent = () => {
                   <th>Section</th>
                   <th>Regestered course</th>
                   <th>Attendence</th>
+                  <th>percentage</th>
               </tr>
           </thead>
           <tbody>
@@ -52,6 +65,7 @@ const HodStudent = () => {
                       <td>A1</td>
                       <td>{value.CourseInfo ? value.CourseInfo.CourseName : 'N/A'}</td>
                       <button onClick={() =>handelclick(value.Attendence)}>View Attendence</button>
+                      <td>{percentage(value.Attendence)}</td>
                   </tr>
                   ))}
           </tbody>
