@@ -7,6 +7,7 @@ import { useCourseContext } from '../../Hooks/useCourseContext'
 import CreateCourse from '../../Component/CreateCourse'
 import HodTable from '../../Component/HodTable'
 import '../../css/HodHome.css'
+import HodNav from '../../Component/Nav-Bar/HodNav'
 const HodHome = () => {
   const {HOD} = useHodAuthContext()
   console.log(HOD)
@@ -33,21 +34,7 @@ const HodHome = () => {
 },[dispatch,HOD])
   return (
     <div>
-      {HOD &&
-        (<div>
-        <button onClick={handelclick} id="Logout">LOG OUT</button>
-        <p className='info'>{HOD.Email}</p>
-        <p className='info'>{HOD.Name}</p>
-        </div>)}
-        <Link to='/hod/student_info'><div>Student Info</div></Link>
-        <div>
-        {course &&
-        <HodTable 
-        />}
-        </div>
-        <div>
-        <CreateCourse />
-        </div>
+       <HodNav course={course} handelclick={handelclick}></HodNav>
     </div>
   )
 }

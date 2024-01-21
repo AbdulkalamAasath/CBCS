@@ -15,6 +15,9 @@ import {useStaffAuthContext} from "./Hooks/useStaffAuthContext"
 import Attendence from "./Component/Attendence";
 import HodStudent from "./Component/HodStudent";
 import AttendenceInfo from "./Component/AttendenceInfo";
+import CreateCourse from "./Component/CreateCourse";
+import HodAbout from "./Component/HodAbout";
+import HodHomePage from "./Component/HodHomePage";
 function App() {
   const {user} = useAuthContext()
   const {HOD} = useHodAuthContext()
@@ -65,6 +68,12 @@ function App() {
             <Route 
             path='/staf/Home/Attendence/Info'
             element={ staff ? <AttendenceInfo /> : <Navigate to='/staf'/>}/>
+            <Route 
+            path='/hod/Create-course'
+            element={HOD ? <CreateCourse/> : <Navigate to='/hod/'/>}/>
+            <Route 
+            path='/hod/About'
+            element={HOD ? <HodAbout/> : <Navigate to='/hod/'/>}/>
          </Routes>
       </BrowserRouter>
     </div>

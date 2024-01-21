@@ -8,7 +8,7 @@
     box-sizing: border-box;
 }
 
-select
+.select
 {
     width: 50%;
     height: 40px;

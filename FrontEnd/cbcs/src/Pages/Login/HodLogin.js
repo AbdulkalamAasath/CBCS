@@ -3,6 +3,7 @@ import { useHodLogin } from '../../Hooks/useHodLogin'
 import logo from './back.jpg'
 import head from '../../css/head.jpg'
 import { Link } from 'react-router-dom'
+import './HodLogin.css'
 const StudentLogin = () => {
     const [Email,setEmail] = useState('')
     const [password,setPassword] = useState('')
@@ -13,51 +14,36 @@ const StudentLogin = () => {
     await login(Email,password)
   }
   return (
-  <div>
-    <header><Link to = '/'>HOME</Link></header>
- <div className="container">
-     <div className="left-side">
-         <img src={head} style={{width: 'auto', height: 'auto'}} />
-     </div>
-    <div className="right-side">
-         <div className="form-group-6gd">
-           <img src={logo} style={{width:'auto', height: 'auto'}} />
-           <p className="text-2ii">
-           <b>Enter your Details.</b>
-            </p>
-          </div>
-         <div className="form-group-6gd">
-            <form id="form" on onSubmit={handelsubmit}>
-                <div className="form-group-6gd">
-                    <label id="row1" htmlFor="Email">Email</label>
-                    <input id="ip1"
-                    type="text"
-                    placeholder="Email" 
-                    className="form-control-6at"
-                    value={Email}
-                    onChange={(e)=>setEmail(e.target.value)}
-                    required />
-                    <div className="error" />
-                    </div>
-                <div className="form-group-6gd">
-                    <label>Password</label>
-                    <input id="Password" 
-                    type="password" 
-                    placeholder="Password" 
-                    className="form-control-6at" 
-                    value={password}
-                    onChange={(e)=>setPassword(e.target.value)}
-                    required />
-                    <div className="error" />
-                </div>
-             <button type="submit"
-             className="btn-6pp btn-aci block-kf4"
-             disabled={isLoading}>Log In</button>
-            </form>
-            {error && <div>{error}</div>}
-      </div>
-    </div>
-  </div>
+  <div className='body-log'>
+       <main className="container-log">
+      <h2>Login</h2>
+      <form on onSubmit={handelsubmit} className='log-form'>
+        <div className="input-field">
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="Enter Your Username"
+            value={Email}
+            onChange={(e)=>{setEmail(e.target.value)}}
+          />
+          <div className="underline"></div>
+        </div>
+        <div className="input-field">
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Enter Your Password"
+            value={password}
+            onChange={(e)=>{setPassword(e.target.value)}}
+          />
+          <div className="underline"></div>
+        </div>
+        <input type="submit" value="Login" />
+      </form>
+      {error && <div className='error-log'>{error}</div>}
+    </main>
   </div>
   )
 }

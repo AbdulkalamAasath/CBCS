@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useCourseContext } from "../Hooks/useCourseContext"
 import { useHodAuthContext } from "../Hooks/useHodAuthContext";
+import './CreateCoursePage.css'
 const CreateCourse = () => {
   const { dispatch } = useCourseContext()
   const [CourseName, setCourseName] = useState('')
@@ -55,18 +56,18 @@ const CreateCourse = () => {
   
 
   return (
-    <form className="create" onSubmit={handleSubmit}>
-      <h3>NEW COURSE</h3>
-
-      <label>Course Name:</label>
+  <div className="body-C">
+    <main className="main-C">
+    <form className="form-C" onSubmit={handleSubmit}>
+      <label htmlFor="ip1">Course Name:</label>
       <input
-        id="ip" 
+        className="ip-C"
         type="text"
         onChange={(e) => setCourseName(e.target.value)}
         value={CourseName}
       />
-
-      <label>Faculty</label>
+      <br></br>
+      <label htmlFor="Coordinator">Faculty</label>
       <select
       id='Coordinator'
       value={Coordinator}
@@ -76,9 +77,9 @@ const CreateCourse = () => {
         {stafs.map((v)=>(
           !v.CourseHandel && <option value={v._id}>{v.Name}</option>
         ))}
-
       </select>
-      <label>PROVIDED BY</label>
+      <br></br>
+      <label htmlFor="Dept">PROVIDED BY</label>
             <select
             id="Dept"
             value={ProvidedBy}
@@ -91,16 +92,20 @@ const CreateCourse = () => {
             <option value="Department of Mechanical Engineering">Department of Mechanical Engineering</option>
             <option value="Department of BioTechnology">Department of BioTechnology</option>
             </select>
-      <label>Available SEATS</label>
+      <br></br>      
+      <label htmlFor="ip2">Available SEATS</label>
       <input
-        id="ip" 
+        id="ip2" 
         type="number"
         onChange={(e) => setSeats(e.target.value)}
         value={Seats}
       />
-      <button id="add">Add Course</button>
+      <br></br>
+      <button >Add Course</button>
       {error && <div className="error">{error}</div>}
     </form>
+    </main>
+  </div>
   )
 }
 
