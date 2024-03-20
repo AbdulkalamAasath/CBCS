@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {useStaffAuthContext} from '../Hooks/useStaffAuthContext'
+import './attendenceSheet.css';
 const AttendanceSheet = () => {
   const [Data,setData] = useState([])
   const [Dates,setDates] = useState()
@@ -137,7 +138,7 @@ const AttendanceSheet = () => {
         </tbody>
       </table>
       <div>
-       <button onClick={(e)=>handelsubmit(e)}>Submit</button>
+       <button onClick={(e)=>handelsubmit(e)}>SUBMIT</button>
      </div>
      </form>
 }
