@@ -21,6 +21,18 @@ const StafSchema = new Schema(
     CourseHandel:{
         type:mongoose.SchemaTypes.ObjectId,
         ref:'Course'
+    },
+    CAE1:
+    {
+        type:Boolean
+    },
+    CAE2:
+    {
+        type:Boolean
+    },
+    SEM:
+    {
+        type:Boolean
     }
 }
 )  

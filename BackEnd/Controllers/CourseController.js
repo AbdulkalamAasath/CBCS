@@ -188,7 +188,24 @@ const StudentAttendence= async(req,res) =>
    const Attendence =  await User.findOneAndUpdate({_id:id},{$push:{'Attendence':{'Date':Date,'present':present}}},{new:true})
    res.status(200).json(Attendence) 
 }
+const StudentMarks= async(req,res) =>
+{
+   const {id} = req.params;
+   const {Marks} = req.body;
+   const Attendence =  await User.findOneAndUpdate({_id:id},{$push:{'Marks':{'CAE1':Marks}}},{new:true})
+   res.status(200).json(Attendence) 
+}
+const updateStaffExamInfo =async(req,res)=>
+{
+const {id} = req.params
+const {CAE1} = req.body
+const{CAE2} = req.body
+const{SEM} = req.body
+const Stafs = await Staf.findOneAndUpdate({_id:id},{CAE1:CAE1,CAE2:CAE2,SEM:SEM},{new:true})
+res.status(200).json(Stafs)
+}
+
 
 module.exports = {
     getCourse,createCourse,getHodCourse,updatecourse,updateUserCourse,getUserCourse,updateStudentInfo,
-    getStudentRegCourse,deleteCourse,getStafsInfo,updateStafsInfo,getRegStudents,getStudentInfo,createAttendence,getDate,stuinfo,getAttendenceInfo,getAttendenceDate,StudentAttendence}
+    getStudentRegCourse,deleteCourse,getStafsInfo,updateStafsInfo,getRegStudents,getStudentInfo,createAttendence,getDate,stuinfo,getAttendenceInfo,getAttendenceDate,StudentAttendence,StudentMarks,updateStaffExamInfo}

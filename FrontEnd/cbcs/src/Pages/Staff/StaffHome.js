@@ -71,6 +71,7 @@ const StaffHome = () => {
           </div>
           <div className="nav-links">
   <NavLink to="/staf/Home/Attendence" activeClassName="active">Give Attendence</NavLink>
+  <NavLink to="/staf/Home/Marks" activeClassName="active">Give Marks</NavLink>
   <NavLink to="/staf/Home/Attendence/Info" activeClassName="active">View Attendence Info</NavLink>
   <NavLink to="/staf/Home/EditProfile" activeClassName="active">Edit Profile</NavLink>
   <NavLink to="/staf/Home/AddStudent" activeClassName="active">Add Student</NavLink>

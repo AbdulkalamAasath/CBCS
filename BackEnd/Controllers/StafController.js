@@ -10,7 +10,10 @@ const StafLogin =async(req,res) =>
     const Name = userinfo.Name
     const id = userinfo._id
     const course_id = userinfo.CourseHandel
-    res.status(200).json({Email,token,Name,id,course_id})
+    const CAE1 = userinfo.CAE1
+    const CAE2 = userinfo.CAE2
+    const SEM = userinfo.SEM
+    res.status(200).json({Email,token,Name,id,course_id,CAE1,CAE2,SEM})
      }
      catch(err){
         res.status(400).json(err.message)

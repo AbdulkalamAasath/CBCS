@@ -18,6 +18,10 @@ import AttendenceInfo from "./Component/AttendenceInfo";
 import CreateCourse from "./Component/CreateCourse";
 import HodAbout from "./Component/HodAbout";
 import HodHomePage from "./Component/HodHomePage";
+import Marks from "./Component/Marks";
+import CAE1 from "./Component/CAE1";
+import CAE2 from "./Component/CAE2";
+import SEM from "./Component/SEM";
 function App() {
   const {user} = useAuthContext()
   const {HOD} = useHodAuthContext()
@@ -65,6 +69,18 @@ function App() {
             <Route 
             path='/staf/Home/Attendence'
             element={ staff ? <Attendence /> : <Navigate to='/staf'/>}/>
+            <Route 
+            path='/staf/Home/Marks/CAE-1'
+            element={ staff ? <CAE1 /> : <Navigate to='/staf'/>}/>
+            <Route 
+            path='/staf/Home/Marks/CAE-2'
+            element={ staff ? <CAE2 /> : <Navigate to='/staf'/>}/>
+            <Route 
+            path='/staf/Home/Marks/SEM'
+            element={ staff ? <SEM /> : <Navigate to='/staf'/>}/>
+            <Route 
+            path='/staf/Home/Marks'
+            element={ staff ? <Marks /> : <Navigate to='/staf'/>}/>
             <Route 
             path='/staf/Home/Attendence/Info'
             element={ staff ? <AttendenceInfo /> : <Navigate to='/staf'/>}/>
