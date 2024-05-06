@@ -204,8 +204,14 @@ const{SEM} = req.body
 const Stafs = await Staf.findOneAndUpdate({_id:id},{CAE1:CAE1,CAE2:CAE2,SEM:SEM},{new:true})
 res.status(200).json(Stafs)
 }
+const getCoeStudentInfo =async(req,res)=>
+   {
+   const {Dept} = req.body
+   const courses = await User.find({Dept:Dept}).populate('CourseInfo')
+   res.status(200).json(courses)
+   }
 
 
 module.exports = {
     getCourse,createCourse,getHodCourse,updatecourse,updateUserCourse,getUserCourse,updateStudentInfo,
-    getStudentRegCourse,deleteCourse,getStafsInfo,updateStafsInfo,getRegStudents,getStudentInfo,createAttendence,getDate,stuinfo,getAttendenceInfo,getAttendenceDate,StudentAttendence,StudentMarks,updateStaffExamInfo}
+    getStudentRegCourse,deleteCourse,getStafsInfo,updateStafsInfo,getRegStudents,getStudentInfo,createAttendence,getDate,stuinfo,getAttendenceInfo,getAttendenceDate,StudentAttendence,StudentMarks,updateStaffExamInfo,getCoeStudentInfo}

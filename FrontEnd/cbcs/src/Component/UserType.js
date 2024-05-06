@@ -7,6 +7,9 @@ const UserType = () => {
   return (
    <div className='usertype'>
     <nav>
+        <div>
+        <Link to ='/COE'>COE</Link>
+        </div>
         <div >
         <Link to ='/dean'>DEAN</Link>
         </div>

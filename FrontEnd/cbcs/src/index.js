@@ -5,6 +5,7 @@ import { AuthContextProvider } from './Context/AuthContext';
 import { CourseContextProvider } from './Context/CourseContext';
 import { HodAuthContextProvider } from './Context/HodAuthContext';
 import { StaffAuthContextProvider } from './Context/StaffAuthContext';
+import {CoeAuthContextProvider} from './Context/CoeAuthContext'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -12,7 +13,9 @@ root.render(
       <CourseContextProvider>
         <HodAuthContextProvider>
           <StaffAuthContextProvider>
+            <CoeAuthContextProvider>
               <App />
+            </CoeAuthContextProvider>
           </StaffAuthContextProvider>
          </HodAuthContextProvider>
       </CourseContextProvider>

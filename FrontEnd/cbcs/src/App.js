@@ -4,10 +4,12 @@ import Dean from "./Pages/Users/Dean";
 import Hod from "./Pages/Users/Hod";
 import Student from "./Pages/Users/Student";
 import Staf from "./Pages/Users/Staf";
+import Coe from "./Pages/Users/COE";
 import StudentSignup from "./Pages/Signup/StudentSignup";
 import Course from "./Pages/Student/Course";
 import { useAuthContext } from "./Hooks/useAuthContext";
 import { useHodAuthContext } from "./Hooks/useHodAuthContext";
+import { useCoeAuthContext } from "./Hooks/UseCoeAuthContext";
 import  HodHome from "./Pages/Hod/HodHome";
 import StaffHome from "./Pages/Staff/StaffHome";
 import CourseRegister from "./Component/CourseRegister";
@@ -22,13 +24,16 @@ import Marks from "./Component/Marks";
 import CAE1 from "./Component/CAE1";
 import CAE2 from "./Component/CAE2";
 import SEM from "./Component/SEM";
+import COEHOME from "./Component/COEHOME";
 function App() {
   const {user} = useAuthContext()
   const {HOD} = useHodAuthContext()
   const {staff} = useStaffAuthContext()
+  const {COE} = useCoeAuthContext()
   console.log(user)
   console.log(HOD)
   console.log(staff)
+  console.log(COE)
   return (
     <div>
       <BrowserRouter>
@@ -90,6 +95,12 @@ function App() {
             <Route 
             path='/hod/About'
             element={HOD ? <HodAbout/> : <Navigate to='/hod/'/>}/>
+            <Route 
+            path='/COE'
+            element={!COE ? <Coe /> : <Navigate to='/COE/Home'/>}/>
+            <Route 
+            path='/COE/Home'
+            element={COE ? <COEHOME /> : <Navigate to='/COE'/>}/>
          </Routes>
       </BrowserRouter>
     </div>
