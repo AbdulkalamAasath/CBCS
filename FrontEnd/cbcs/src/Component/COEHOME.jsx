@@ -2,9 +2,13 @@ import React from 'react'
 import { useEffect, useState } from "react"
 import './CreateCoursePage.css'
 import CoeTable from './CoeTable'
+import { useCoeLogout} from '../Hooks/useCoeLogout'
 export default function COEHOME() {
   const [Dept, setDept] = useState('')
-  console.log(Dept)
+  
+  
+    
+  
   return (
     <div>
     {!Dept &&<div className="body-C">

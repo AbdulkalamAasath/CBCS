@@ -151,16 +151,21 @@ const createAttendence = async(req,res)=>
    }
    res.status(200).json(attendence)
 }
-const getDate = async(req,res)=>
-{
-   const {id} = req.params
-   const Date = await Attendance.findOne({StaffId:id}).sort({createdAt:-1}).select('Date').select('StaffId')
-   if(!Date)
-   {
-    res.status(404).json("Error in fetching")
+const getDate = async (req, res) => {
+   try {
+     const { id } = req.params;
+     const date = await Attendance.findOne({ StaffId: id }).sort({ createdAt: -1 }).select('Date StaffId');
+ 
+     if (!date) {
+       return res.status(404).json({ message: "Error in fetching" });
+     }
+ 
+     res.status(200).json(date);
+   } catch (error) {
+     console.error(error);
+     res.status(500).json({ message: "Server error" });
    }
-   res.status(200).json(Date)
-}
+ };
 const stuinfo = async(req,res) =>
 {
    const {Dept} = req.body
