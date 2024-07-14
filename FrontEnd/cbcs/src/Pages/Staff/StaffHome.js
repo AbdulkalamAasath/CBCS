@@ -54,7 +54,7 @@ const StaffHome = () => {
       {staff && (
         <div className="side-navbar">
           {/* Add the image here */}
-          <img src="/Pages/Login/back.jpg" alt="Sidebar Image" className="sidebar-image" />
+          
           <div className="staff-details">
             <div className="profile-pic-container">
               {profilePic ? (

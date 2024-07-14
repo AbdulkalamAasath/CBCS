@@ -7,7 +7,7 @@ const HodNav = ({course,handelclick}) => {
     <div className='body-nav'>
       <div className="wrapper-Nav">
       <div className="sidebar">
-        <h2>Sidebar</h2>
+        <h2>DASHBOARD</h2>
         <ul>
           <li><Link to='/hod/Home'><div>Home</div></Link></li>
           <li><Link to='/hod/student_info'><div>Student Info</div></Link></li>

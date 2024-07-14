@@ -69,7 +69,7 @@ const StudentInfo = ({ user }) => {
                                     </tr>
                                     <tr>
                                         <td>Marks:</td>
-                                        <td><a href="#">{value.Marks}</a></td>
+                                        <td><a href="#">{value.Marks.CAE1}</a></td>
                                     </tr>
                                 </tbody>
                             </table>

@@ -1,18 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './HodAbout.css';
 
 const HodAbout = () => {
+  const [photoUrl, setPhotoUrl] = useState('');
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPhotoUrl(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   return (
     <div>
       <div className='main'>
         <div className="container_profile">
           <div className="box">
-            <img src='' alt="" />
-            <table id ='info'>
+            <label htmlFor="file-upload" className="custom-file-upload">
+              {photoUrl ? (
+                <img src={photoUrl} alt="Preview" className="profile-img" />
+              ) : (
+                <div className="upload-placeholder">Upload Photo</div>
+              )}
+            </label>
+            <input id="file-upload" type="file" onChange={handleFileChange} accept="image/*" style={{ display: 'none' }} />
+            <table id='info'>
               <tbody>
                 <tr>
                   <td>Name</td>
-                  <td>: Dr.Subhashini </td>
+                  <td>: Dr. Subhashini </td>
                 </tr>
                 <tr>
                   <td>Position</td>
@@ -34,10 +54,10 @@ const HodAbout = () => {
                   <td>Address</td>
                   <td>: 123 Main Street, City, Country</td>
                 </tr>
-              </tbody> 
+              </tbody>
             </table>
           </div>
-          <div className="About">  
+          <div className="About">
             <h2>About Me</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac mollis massa. Morbi sed sapien nec risus placerat fermentum. Ut vehicula sem vitae eros lacinia, at congue lacus dapibus.</p>
             <p>Sed id nulla eget libero efficitur dapibus vitae sit amet mauris. Duis scelerisque lacus at mauris laoreet, eget eleifend mi molestie.</p>

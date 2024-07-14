@@ -1,0 +1,128 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Top navbar */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #831238;
+    color: #fff;
+    padding: 5px 10px;
+    position: fixed;
+    width: 100%; /* Adjust the width */
+    height: 100px; /* Adjust the height */
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+.top-nav .nav-links {
+    display: flex;
+    gap: 15px;
+}
+
+.top-nav .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.top-nav .nav-links a:hover {
+    background-color: #9e1c3f;
+    color: #ff0;
+}
+
+.top-nav .nav-links a.active {
+    background-color: #28ae72;
+    color: #fff;
+}
+
+/* Content area */
+.content {
+    margin-top: 120px; /* Adjusted space for the fixed top nav */
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 210px); /* Adjusted height to account for navbars */
+}
+
+/* Marks navigation container */
+.marks-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 70px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #232222; /* Light black border */
+}
+
+.marks-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.marks-nav a {
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.marks-nav a:hover {
+    background-color: #0056b3;
+    color: #ff0;
+}
+
+/* Bottom navbar */
+.bottom-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #831238;
+    color: #fff;
+    padding: 5px 10px;
+    position: fixed;
+    width: 100%; /* Adjust the width */
+    height: 90px; /* Adjust the height */
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.bottom-nav .nav-links {
+    display: flex;
+    gap: 15px;
+}
+
+.bottom-nav .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.bottom-nav .nav-links a:hover {
+    background-color: #9e1c3f;
+    color: #ff0;
+}
+
+.bottom-nav .nav-links a.active {
+    background-color: #28ae72;
+    color: #fff;
+}
