@@ -68,8 +68,16 @@ const StudentInfo = ({ user }) => {
                                         <td>{value.CourseInfo.CourseName}</td>
                                     </tr>
                                     <tr>
-                                        <td>Marks:</td>
-                                        <td><a href="#">{value.Marks.CAE1}</a></td>
+                                        <td>CAE1</td>
+                                        <td><a href="#">{value.CAE1}</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>CAE2</td>
+                                        <td><a href="#">{value.CAE1}</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>SEM</td>
+                                        <td><a href="#">{value.CAE1}</a></td>
                                     </tr>
                                 </tbody>
                             </table>

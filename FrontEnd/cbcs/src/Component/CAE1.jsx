@@ -49,7 +49,7 @@ const CAE1 = () => {
     )
     Object.entries(Marks).map(async([studentId, marks]) =>{
       const info = {Marks:marks}
-      const response = await fetch('http://localhost:4000/cbcs/staf/Marks/given/CAE1'+studentId, {
+      const response = await fetch('http://localhost:4000/cbcs/staf/Marks/given/CAE1/'+studentId, {
       method: 'POST',
       body: JSON.stringify(info),
       headers: {
@@ -59,6 +59,7 @@ const CAE1 = () => {
     })
     })
     if(response.ok)
+      console.log(response)
     {window.location.reload()}
     
   }

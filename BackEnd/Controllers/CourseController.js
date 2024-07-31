@@ -196,22 +196,26 @@ const StudentAttendence= async(req,res) =>
 const StudentMarks1= async(req,res) =>
 {
    const {id} = req.params;
+   
    const {Marks} = req.body;
-   const Attendence =  await User.findOneAndUpdate({_id:id},{$push:{'Marks':{'CAE1':Marks}}},{new:true})
+   const Attendence =  await User.findOneAndUpdate({_id:id},{CAE1:Marks},{new:true})
+  
    res.status(200).json(Attendence) 
 }
 const StudentMarks2= async(req,res) =>
    {
       const {id} = req.params;
       const {Marks} = req.body;
-      const Attendence =  await User.findOneAndUpdate({_id:id},{$push:{'Marks':{'CAE2':Marks}}},{new:true})
+      const Attendence =  await User.findOneAndUpdate({_id:id},{CAE2:Marks},{new:true})
+      
+     
       res.status(200).json(Attendence) 
    }
    const StudentMarks3= async(req,res) =>
       {
          const {id} = req.params;
          const {Marks} = req.body;
-         const Attendence =  await User.findOneAndUpdate({_id:id},{$push:{'Marks':{'SEM':Marks}}},{new:true})
+         const Attendence =  await User.findOneAndUpdate({_id:id},{SEM:Marks},{new:true})
          res.status(200).json(Attendence) 
       }
 const updateStaffExamInfo =async(req,res)=>

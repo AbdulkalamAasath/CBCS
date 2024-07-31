@@ -17,7 +17,7 @@ const UserType = () => {
         <Link to ='/hod'>HOD</Link>
         </div>
         <div >
-        <Link to ='/staf'>STAF</Link>
+        <Link to ='/staf'>STAFF</Link>
         </div>
         <div>
         <Link to ='/student'>STUDENT</Link>

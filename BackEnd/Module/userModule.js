@@ -44,22 +44,15 @@ const userSchema = new Schema(
             }  
         }
     ],
-    Marks:[
-        {
-            CAE1:
-            {
-                type:String
-            },
-            CAE2:
-            {
-                type:String
-            } ,
-            SEM:
-            {
-                type:String
-            }
-        }
-    ]
+   CAE1:{
+    type:Number
+   },
+   CAE2:{
+    type:Number
+   },
+   SEM:{
+    type:Number
+   }
 }
 )  
 
